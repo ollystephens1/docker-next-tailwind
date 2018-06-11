@@ -1,8 +1,8 @@
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/joecohens/next-with-tailwindcss)
-# Next.js with Tailwind CSS
+# Next.js + Tailwind CSS + Docker
 
-This is an example of how you can use Tailwind CSS in a Next.js app.
-It is based on the [Next.js with global stylesheet example](https://github.com/zeit/next.js/tree/canary/examples/with-global-stylesheet).
+This is an example of how you can use Tailwind CSS in a Next.js using Docker for development.
+
+It is based on the [Next.js and Tailwind Css](https://github.com/joecohens/next-with-tailwindcss).
 
 ## How to use
 
@@ -21,10 +21,13 @@ npm run dev
 
 Visit [http://localhost:3000](http://localhost:3000) add your own clases to `styles/index.scss`.
 
-Deploy it to the cloud with [now](https://zeit.co/now)
+## Running with Docker
+
+Build the image based on the Dockerfile provided by the repo.
 
 ```bash
-now
+docker build --rm --tag next-tailwindcss:latest
+docker run -it --name next-tailwind -p 3000:3000 -v ${PWD}/:/app/ next-tailwind:latest
 ```
 
 ![example](screenshot.png)
